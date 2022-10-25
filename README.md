@@ -1,7 +1,7 @@
 # COMPSCI 235 Repository for Assignment 2
 
 ## About
-A web acessable library created by Caleb Ko, Samuel Dosado and Jacob Watson for Assignment 2 of Compsci 235.
+A web acessable library created by Caleb Ko, Samuel Dosado and Jacob Watson for Assignment 2 of Compsci 235 2021.
 
 ### IF DATABASE LOCKS OR UNIQUE ID KEEP HOMEPAGE OPEN WHILE DATABASE IS BEING POPULATED
 
