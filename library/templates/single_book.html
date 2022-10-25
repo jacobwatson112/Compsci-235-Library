@@ -1,0 +1,110 @@
+<!--
+=====single_book.html=====
+This file contains a webpage which shows one book
+-->
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="display_book">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="display_book_image large_image" src="{{book.image_url}}" alt="Card image cap">
+            </div>
+            <div class="col-sm-8">
+                <h1>{{ book.title }}</h1>
+            <p>Publisher:{% if book.publisher.name != "N/A" %} <a href="/list?publisher={{book.publisher.name}}">{{book.publisher.name}}</a></p> {%else%} N/A {%endif%}
+                <p> Authors:{%for author in book.authors%} <a href="/list?author={{author.unique_id}}">{{author.full_name}}</a> {%endfor%}</p>
+                <p>Release year: <b>{{ book.release_year }}</b></p>
+                <p>Description: {{ book.description }}</p>
+                {% if user %}
+                <div class="row">
+                    <div class="col-sm-8">
+                        <span class="reviews_title"> Make a review  </span>
+                        <form method="POST" action="/review_book?book={{book.book_id}}">
+                            {{ currentReview.csrf_token }}
+                            <div class="reviewBox"> {{ currentReview.review }} </div>
+                            {{ currentReview.rating.label }}
+                            {{ currentReview.rating }}
+                            {{ currentReview.submit }}
+                        </form>
+                    </div>
+                    <div class="col-sm-4" style="border-style: none none none solid">
+                        <span class="reviews_title"> Reading List  </span>
+                        <form method="POST" action="/add_entry?book={{ book.book_id }}">
+                           {{ readingList.csrf_token }}
+                           {{ readingList.pages_read.label }}
+                           {{ readingList.pages_read }}
+                           {{ readingList.status.label }}
+                           {{ readingList.status }}
+                           {{ readingList.submit }}
+                        </form>
+                    </div>
+                </div>
+
+                {% else %}
+                    <span class="reviews_title"> Sign in to make a review or add to reading list  </span>
+                    <form class="sign_up" action="/sign_up">
+                        <button class="btn btn-outline-primary" type="submit">Sign in</button>
+                    </form>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="review">
+    <div class="display_book">
+        <div class="container">
+            <div class="row">
+                <span class="reviews_title"> Reviews </span>
+                {% for review in reviews %}
+                <div class="card review_cards" style="max-width: 18rem;">
+                    <div class="card-header review_header">Rating: {{review.rating}}/5 </div>
+                    <div class="card-body review_card">
+                        <p class="card-text"> {{review.review_text}} </p>
+                    </div>
+                    <div class="card-footer bg-transparent"> {{review.timestamp}} </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% if related%}
+<div class="container">
+<span class="reviews_title"> Recommended books </span> <br>
+</div>
+<div id="scroller-wrapper">
+    <div id="scroller">
+        {% for relatedBooks in related %}
+        <div class="elem">
+            <div class="card" style="min-width: 300px; min-height: 250px;">
+                <img class="card-image" src="{{ relatedBooks.image_url }}" alt="Card image cap" style="width: 150px; height: auto;">
+                <div class="card-body" style="min-width: 500px;">
+                    <h5 class="card-title" style="padding-left: 95px; padding-right: -50px;">{{relatedBooks.title}}, {{loop.index}}</h5>
+                    <p class="card-text edit_1">By: {{relatedBooks.authors[0].full_name}}</p>
+                    <a href="/selected_book?book={{relatedBooks.book_id}}" class="btn btn-success edit_1 top_button">Go to book</a>
+                </div>
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%endif%}
+<div class="container">
+    <div class="tags_title"> Tags </div>
+
+    {% for tag in tags%}
+        <a href="/list?tag={{tag}}">{{tag}}</a>
+    {%endfor%}
+</div>
+
+
+{% endblock %}
+
+

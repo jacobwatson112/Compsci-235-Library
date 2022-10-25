@@ -1,0 +1,71 @@
+<!--
+=====sign_up.html=====
+This file contains a webpage which allows a user to sign in or sign up
+-->
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container sign_main" >
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="left_sign_content" style="text-align: left">
+                <span style="font-size: 50px" id="no"> Want to sign up? </span>
+                <span style="font-size: 50px" id="yes"> Want to sign in? </span>
+                <br>
+                <button class="btn btn-primary" onclick="myFunction()">Click here</button>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <form method="POST" action="/login" id="left">
+                {{ sign_in.csrf_token }}
+                <div class="sign_form">
+                    <span class="sign_title">
+                        Sign in
+                    </span>
+                    <br>
+                    {{ sign_in.username.label }}
+                    {{ sign_up.username }}
+                    <br>
+                    {{ sign_in.password.label }}
+                    {{ sign_in.password }}
+                    <br>
+                    <span class="submit_btn">
+                        {{ sign_in.submit }}
+                    </span>
+                </div>
+            </form>
+
+
+
+            <form method="POST" action="/register" id="right">
+                {{ sign_up.csrf_token }}
+                <div class="sign_form">
+                    <span class="sign_title">
+                        Sign up
+                    </span>
+                    <br>
+                    {{ sign_up.username.label }}
+                    {{ sign_up.username }}
+                    <br>
+                    {{ sign_up.password.label }}
+                    {{ sign_up.password }}
+                    <br>
+                    {{ sign_up.confirm.label }}
+                    {{ sign_up.confirm }}
+                    <br>
+                    <span class="submit_btn">
+                        {{ sign_up.submit }}
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    {% if error %}
+        <h1>omae wa made an uwupsie >.< and it was {{error}}</h1>
+    {%endif%}
+
+</div>
+{% endblock %}

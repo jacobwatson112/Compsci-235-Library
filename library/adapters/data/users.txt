@@ -1,0 +1,4 @@
+user_id,username,password
+37b3e60b4e4152c580fd798d405150ff,samuel,admin123
+16bcc03cb29d0950f52a897ceaf8eb6e,caleb,admin456
+c9b724a75f3bdf9b2c7379478d772938,jacob,admin789

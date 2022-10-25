@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{%block content%}
+<div class="row">
+{% for review in reviews %}
+<div class ="col">
+    <div>
+        <h1>{{loop.index}}</h1>
+        <p>{{review.review_text}}</p>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

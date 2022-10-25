@@ -1,0 +1,356 @@
+/*
+=====stylesheet.css=====
+This file is the stylesheet which is linked to "layout.html".
+*/
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    margin-top:-3%;
+    z-index: 1;
+}
+
+.main {
+    margin-top: 3%
+}
+
+
+/*
+
+Lower below is the Footer
+links to footer.html
+
+*/
+
+.footer {
+    margin-top: 200px;
+}
+
+/*
+
+Lower below is content related stuff for the nav menu
+links to navigation.html
+
+*/
+
+.navbar-brand {
+    font-size: 3.25rem !important;
+}
+
+.nav_text {
+    font-size: 1.5rem;
+}
+
+.nav_right {
+margin-right: 50px;
+}
+
+.d-flex {
+    margin-right: 50px;
+}
+
+.sign_up {
+    padding-right: 5%;
+}
+
+/*
+
+Lower below is content related stuff for the home page
+links to home_page.html
+Banner CSS
+
+*/
+
+.banner_text {
+    margin-left: -265px;
+    position: fixed;
+    -webkit-animation: animation_1 7s infinite;
+}
+
+@-webkit-keyframes animation_1{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+
+.banner_texts {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+
+    background:
+    url(https://aceship.github.io/AN-EN-Tags/img/avg/images/avg_ac16_2.png) no-repeat center center fixed;
+    background-size: cover;
+
+    padding-top: 15%;
+    padding-bottom: 35%;
+}
+
+
+/*
+
+Lower below is content related stuff for the home page
+links to home_page.html
+Content CSS
+
+*/
+
+.content {
+   text-align: center;
+   margin-top: 100px;
+}
+
+.card_edit {
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.card_home_fix {
+    text-align: left;
+    width: 100%;
+    padding-left: 20%;
+
+}
+
+.index_fix {
+    z-index: 0;
+}
+
+.left_col {
+    border-style: none none none solid;
+    text-align: left;
+}
+
+.top_pick_title {
+    font-size: 100px;
+}
+
+.top_image {
+    width: 75%;
+    height auto;
+
+}
+
+.inner_col {
+    border-style: none none none solid;
+    padding-left: 10%;
+}
+
+.book_title_home {
+    font-size: 25px;
+}
+
+.top_btn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.right_col {
+    border-style: none none none solid;
+    padding-top: 1%;
+    text-align: left;
+}
+
+.home_try {
+    font-size: 60px;
+}
+
+/*
+
+Lower below is card related stuff for the list of books
+links to books.html
+Cards CSS
+
+*/
+
+
+.list_books {
+    padding-top: 100px;
+    padding-left: 12.5%;
+    padding-right: 7.5%;
+}
+
+.book_col {
+    z-index: -1;
+    margin-bottom: 1%;
+    padding-right: 1%
+}
+
+.card {
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    margin-bottom: 20px;
+}
+
+.top_button{
+    margin-bottom: 10px;
+}
+.card-body {
+    margin-left: -95px;
+    margin-top: 0px;
+}
+
+.edit_1 {
+    margin-left: 95px;
+    width: 200px;
+}
+
+.card-image{
+    background-color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 20rem;
+    max-height: 25rem;
+    width: 200px;
+    height: 300px;
+}
+
+
+/*
+
+Lower below is the sign up CSS
+
+*/
+
+#right {
+    display: none;
+}
+
+#yes {
+    display: none;
+}
+
+.sign_main {
+    padding-top: 90px;
+}
+
+.sign_form {
+    text-align: right;
+    margin-right: 50%;
+}
+
+.sign_title {
+
+    font-size: 56px;
+}
+
+.submit_btn {
+    text-align:right;
+}
+
+/*
+
+Lower below is the singular book page CSS
+
+*/
+
+.display_book {
+    padding-top: 100px;
+}
+
+.display_book_image {
+    margin-right: 40%;
+}
+
+/*
+
+Lower below is the singular book page CSS
+Reviews
+
+*/
+
+.reviews_title {
+    font-size: 36px;
+}
+
+.review_cards {
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+
+    margin: 0px 10px 10px 0px;
+    width: 500px;
+}
+textArea {
+    width: 100%;
+    height: 100px;
+}
+
+.review_header {
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.review_card {
+    margin-left: 0px;
+}
+
+.large_image{
+width: 400px;
+height:600px;
+}
+
+/*
+
+Lower below is the singular book page CSS
+Reading list
+
+*/
+
+ol, ul {
+    margin-left: -30px;
+    list-style: none;
+}
+
+/*
+
+Lower below is the singular book page CSS
+recommended books
+
+*/
+
+#scroller-wrapper {
+    width: 100%;
+    height: 300px;
+}
+
+#scroller {
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.elem {
+    height: 100%;
+    display: inline-block;
+}
+
+/*
+
+Lower below is the Reading List page CSS
+
+*/
+
+
+/*
+
+Lower below is the singular book page CSS
+recommended books
+
+*/
+
+.reading_list_content {
+    position: fixed;
+}
+
+.reading_list_title {
+    font-size: 48px;
+}

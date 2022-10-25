@@ -1,0 +1,100 @@
+<!--
+=====books.html=====
+This file contains the html page for the full screen book page
+-->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if books%}
+<div class="list_books">
+    <div class="container-fluid">
+    <h1>{{title}}</h1>
+      <div class="row">
+        {% for book in books %}
+          <div class="col-xl-4">
+              <div class="card" style="max-width: 30rem; height: 19rem; ">
+                    <img class="card-image" src="{{ book.image_url }}" alt="Card image cap">
+                     <div class="card-body">
+
+                         <h5 class="card-title edit_1">{{book.title}}</h5>
+                             <p class="card-text edit_1">By: {{book.authors[0].full_name}}</p>
+                             <a href="/selected_book?book={{book.book_id}}" class="btn btn-success edit_1 top_button">Go to book</a>
+
+                     </div>
+                 </div>
+          </div>
+        {%endfor%}
+      </div>
+    </div>
+ </div>
+{%set found1 = true%}
+{%else%}
+{% set found1 = false%}
+{%endif%}
+{% if authors_books %}
+
+<div class="list_books">
+    <div class="container-fluid">
+        <h1>Books by Authors with '{{searched}}' in the name</h1>
+        <div class="row">
+            {% for book in authors_books %}
+            <div class="col-xl-4">
+                <div class="card" style="max-width: 30rem; height: 19rem; ">
+                    <img class="card-image" src="{{ book.image_url }}" alt="Card image cap">
+                    <div class="card-body">
+
+                        <h5 class="card-title edit_1">{{book.title}}</h5>
+                        <p class="card-text edit_1">By: {{book.authors[0].full_name}}</p>
+                        <a href="/selected_book?book={{book.book_id}}" class="btn btn-success edit_1 top_button">Go to book</a>
+
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%set found2 = true%}
+{%else%}
+{% set found2 = false%}
+{%endif%}
+
+{% if tag_books %}
+
+<div class="list_books">
+    <div class="container-fluid">
+        <h1>Books with '{{searched}}' in the tag</h1>
+        <div class="row">
+            {% for book in tag_books %}
+            <div class="col-xl-4">
+                <div class="card" style="max-width: 30rem; height: 19rem; ">
+                    <img class="card-image" src="{{ book.image_url }}" alt="Card image cap">
+                    <div class="card-body">
+
+                        <h5 class="card-title edit_1">{{book.title}}</h5>
+                        <p class="card-text edit_1">By: {{book.authors[0].full_name}}</p>
+                        <a href="/selected_book?book={{book.book_id}}" class="btn btn-success edit_1 top_button">Go to book</a>
+
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%set found3 = true%}
+{%else%}
+{% set found3 = false%}
+{%endif%}
+
+{% if not found1 and not found2 and not found3%}
+<div class="list_books">
+    <h1>No books with {{searched}} lmao search better</h1>
+</div>
+{%endif%}
+{% endblock %}
+
+
+
+

@@ -1,0 +1,48 @@
+<!--
+=====navigation.html=====
+This file contains the navigation bar at the top of the page
+-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Library of Gan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <span class="nav_text">
+            <a class="nav-link" href="/list" style="margin-left: 30px">All Books</a>
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="nav_text">
+            {% if user %}
+            <a class="nav-link" href="/readinglist" style="margin-left: 30px">Reading lists</a>
+            {% endif %}
+          </span>
+        </li>
+      </ul>
+      <form class="d-flex" action="/list" method="POST">
+        {{search_form.csrf_token}}
+        {{search_form.search}}
+        {{search_form.submit}}
+      </form>
+      {% if user %}
+      <span class="nav_text nav_right">
+            Hi {{user}}
+      </span>
+      <form class="logout" action="/logout">
+        <button class="btn btn-outline-danger" type="submit">Log out</button>
+    </form>
+
+      {% else %}
+      <form class="sign_up" action="/sign_up">
+        <button class="btn btn-outline-primary" type="submit">Sign in</button>
+    </form>
+      {% endif %}
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,62 @@
+<!--
+=====home_page.html=====
+This file contains the home home_page.html page, this is the page that opens when the website is loaded
+-->
+
+
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<div class="banner">
+    <div class="banner_texts">
+        <span class="banner_text">Welcome to the library</span>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 index_fix left_col">
+                <span class="top_pick_title"> Editor Top Picks </span>
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <img class="top_image" src="{{ best_book.image_url }}" alt="Card image cap">
+                    </div>
+                    <div class="col-xl-6 inner_col">
+                        <div class="book_details">
+                            <span class="book_title_home"> {{best_book.title}} </span>
+                            <a href="/selected_book?book={{best_book.book_id}}" class="top_btn btn btn-primary btn-lg btn-block" style="margin-top: 15%">Go to book</a>
+                            <br>
+
+
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <div class="col-xl-4 index_fix right_col">
+                <span class="home_try"> Try these out</span>
+                {% for book in books %}
+                 <div class="card card_edit">
+                    <img class="card-image" src="{{ book.image_url }}" alt="Card image cap" style="width: 150px; height: 250px;">
+                     <div class="card-body">
+
+                         <h5 class="card-title card_home_fix">{{book.title}}</h5>
+                             <p class="card-text card_home_fix">By: {{book.authors[0].full_name}}</p>
+                             <a href="/selected_book?book={{book.book_id}}" class="btn btn-success " style="margin-left: 20%">Go to book</a>
+
+
+                     </div>
+                 </div>
+                {%endfor%}
+             </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 5%">
+    <div class="row">
+        <div class="col-xl-7">
+            <div class="reading_list_content">
+                <span class="reading_list_title"> Your reading list </span>
+                <br>
+                <span> You currently have {%if books%}{{ books|length }}{%else%}no{%endif%} books in your reading list</span>
+                <br>
+                <span> Imagine reading:tm: </span>
+            </div>
+        </div>
+        <div class="col-xl-5">
+        {% for book in books %}
+          <div class="card" style="max-width: 30rem; height: auto; ">
+                <img class="card-image" src="{{ book.book.image_url }}" alt="Card image cap" style="width: 150px; height: auto;">
+                 <div class="card-body">
+                     <h5 class="card-title edit_1">{{book.book.title}}, {{loop.index}}</h5>
+                     <p class="card-text edit_1">By: {{book.book.authors[0].full_name}}<br>Status: {{book.status}}<br>Pages: {{book.pages_read}}/{{book.book.num_pages}}</p>
+                     <a href="/selected_book?book={{book.book.book_id}}" class="btn btn-success edit_1 top_button">Go to book</a>
+                 </div>
+             </div>
+        {%endfor%}
+        </div>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
